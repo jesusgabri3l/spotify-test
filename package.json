@@ -13,8 +13,12 @@
     "coverage": "vitest --coverage"
   },
   "dependencies": {
+    "axios": "^1.1.2",
+    "generate-random-string": "^1.0.2",
     "pinia": "^2.0.23",
-    "vue": "^3.2.37"
+    "query-string": "^7.1.1",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.5"
   },
   "devDependencies": {
     "@pinia/testing": "0.0.14",
