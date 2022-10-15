@@ -2,6 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import generateRandomString from 'generate-random-string';
 import querystring from 'query-string';
 
+import { useAuthStore } from '../../../store/auth/useAuthStore';
 const SpotifyAuthURI = import.meta.env.VITE_SPOTIFY_AUTH_URI as string;
 
 const clientID = import.meta.env.VITE_SPOTIFY_AUTH_CLIENT_ID as string;
@@ -20,17 +21,6 @@ function getHeaders() {
 export const SpotifyAuthApi = axios.create({
   baseURL: SpotifyAuthURI,
 });
-
-SpotifyAuthApi.interceptors.response.use(
-  function (response) {
-    return response;
-  },
-  async function (error) {
-    if (error) {
-      console.log(error);
-    }
-  },
-);
 
 export default {
   URL,
@@ -60,8 +50,9 @@ export default {
     });
   },
   refreshToken(): Promise<AxiosResponse> {
+    const authStore = useAuthStore();
     const body: any = {
-      refresh_token: 'refresh',
+      refresh_token: authStore.getRefreshToken,
       grant_type: 'refresh_token',
     };
     return SpotifyAuthApi.post('api/token', querystring.stringify(body), {
