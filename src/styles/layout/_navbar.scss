@@ -1,0 +1,40 @@
+.navbar{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: $NAVBAR-HEIGHT;
+    background-color: $COMPLEMENT-COLOR;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+    @include box-shadow;
+    &__list{
+        width: 70%;
+        height: 100%;
+        display: flex;
+        gap: 0;
+        &__item{
+            height: 100%;
+            display: flex;
+            &__link{
+                color: $WHITE-COLOR;
+                font-weight: 500;
+                font-size: 16px;
+                letter-spacing:  2px;
+                text-transform: uppercase;
+                height: 100%;
+                @include flex-center;
+                padding: 0 40px;
+                border-radius: $BORDER-RADIUS;
+                &.active{
+                    background-color: $PRIMARY-COLOR;
+                }
+            }
+        }
+    }
+    &__profile{
+        width: 30%;
+    }
+}

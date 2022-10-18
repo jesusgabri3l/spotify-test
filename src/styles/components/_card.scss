@@ -1,0 +1,27 @@
+.card{
+    width: 200px;
+    height: 250px;
+    background-color: $ELEMENT-COLOR;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: $BORDER-RADIUS;
+    @include box-shadow;
+    &__image{
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        align-self: center;
+    }
+    &__title{
+        color: $WHITE-COLOR;
+        font-weight: 700;
+        font-size: 18px;
+    }
+    &__description{
+        color: $GRAY-COLOR;
+        font-weight: 500;
+    }
+}

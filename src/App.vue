@@ -1,35 +1,25 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue';
-
-import SpotifyApi from './services/SpotifyApi';
-import { useAuthStore } from './store/auth/useAuthStore';
-import { useUserStore } from './store/user/useUserStore';
-
-const loading = ref(true);
-const authStore = useAuthStore();
-const userStore = useUserStore();
-
-const getUserInformation = async () => {
-  if (!userStore.getUser.id && authStore.getAccessToken) {
-    const { data: userResponse } = await SpotifyApi.getCurrentUserInfo();
-    const { display_name, id, images } = userResponse;
-    userStore.setUser({ display_name, id, image: images[0].url });
-    loading.value = false;
-  } else if (userStore.getUser.id) loading.value = false;
-  else loading.value = false;
-};
-
-watch(
-  () => authStore.authInfo.access_token,
-  () => getUserInformation(),
-);
-onMounted(() => getUserInformation());
+import BaseLoader from './components/base/BaseLoader.vue';
+import TheLayout from './components/layout/TheLayout.vue';
+import { useFetchUser } from './composables/useFetchUser';
+const { loading } = useFetchUser();
+const routesWithNoLayout = ['Login', 'Callback'];
 </script>
 <template>
-  <template v-if="!loading">
-    <router-view />
-  </template>
-  <template v-else>
-    <p>Loading...</p>
-  </template>
+  <div class="app-wrapper">
+    <!-- Loading for fetching the user -->
+    <template v-if="!loading">
+      <template v-if="routesWithNoLayout.includes($route.name as string)">
+        <router-view />
+      </template>
+      <template v-else>
+        <TheLayout />
+      </template>
+    </template>
+    <template v-else>
+      <div class="h-screen flex-center">
+        <BaseLoader />
+      </div>
+    </template>
+  </div>
 </template>

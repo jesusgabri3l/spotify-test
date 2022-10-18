@@ -1,0 +1,21 @@
+@mixin defineButtonColor  ($bg, $text){
+    background-color: $bg;
+    color: $text; 
+}
+.button{
+    min-width: 60px;
+    width: auto;
+    padding: 10px 40px;
+    text-align: center;
+    letter-spacing: 1px;
+    border-radius: $BORDER-RADIUS;
+    font-weight: 700;
+    font-size: 18px;
+    @include box-shadow;
+    @media only screen and (max-width: $TABLETS) {
+        font-size: 15px;
+    }
+    &--primary{
+        @include defineButtonColor($PRIMARY-COLOR, $WHITE-COLOR,);
+    }
+}

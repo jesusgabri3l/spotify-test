@@ -1,0 +1,66 @@
+$BLUE-GRADIENT : rgba(58, 121, 194, 0.7);
+$RED-GRADIENT: rgba(138, 31, 31, 0.7);
+$GREEN-GRADIENT: rgba(36, 86, 19, 0.7);
+
+.header{
+    height: 50vh;
+    width: 100%;
+    padding-left: 3rem;
+    display: flex;
+    align-items: center;
+    color : $WHITE-COLOR;
+    &.blue{
+        background: linear-gradient(180deg, $BLUE-GRADIENT 10.42%, $BACKGROUND-COLOR 100%);
+    }
+    &.red{
+        background: linear-gradient(180deg, $RED-GRADIENT 10.42%, $BACKGROUND-COLOR 100%);
+    }
+    &.green{
+      background: linear-gradient(180deg, $GREEN-GRADIENT 10.42%, $BACKGROUND-COLOR 100%);
+  }
+    @media only screen and (max-width: $TABLETS) {
+      padding-top: 60px;
+      padding-left: 0;
+      flex-direction: column;
+    }
+    @media only screen and (max-width: $M-PHONE) {
+      padding: 50px 5px 0;
+    }
+    @media only screen and (max-width: $S-PHONE) {
+      padding-top: 35px;
+      height: 60vh;
+    }
+    &__type{
+        font-size: 16px;
+        font-weight: 500;
+        @media only screen and (max-width: $TABLETS) {
+            display: none;
+        }
+    }
+    &__name{
+      width: auto;
+      font-weight: 700;
+      font-size: 48px;
+      @media only screen and (max-width: $TABLETS) {
+        text-align: center;
+        }
+    }
+    &__image{
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      @media only screen and (max-width: $MD-DESKTOP) {
+        height: 160px;
+        width: 160px;
+      }
+      @media only screen and (max-width: $M-PHONE) {
+        height: 140px;
+        width: 140px;
+      }
+      @media only screen and (max-width: $S-PHONE) {
+        height: 100px;
+        width: 100px;
+      }
+    }
+  }

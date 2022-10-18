@@ -1,0 +1,36 @@
+.login-view{
+    height: 100vh;
+    @include flex-center;
+    &__card{
+        width: 50%;
+        height: 50%;
+        padding: 32px;
+        background-color: $ELEMENT-COLOR;
+        border-radius: $BORDER-RADIUS;
+        @include box-shadow;
+        @include flex-center;
+        flex-direction: column;
+        @media only screen and (max-width: $TABLETS) {
+            width: 100%;
+            height: 80%;
+        }
+        &__title{
+            color: $WHITE-COLOR;
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            @media only screen and (max-width: $TABLETS) {
+                font-size: 28px;
+            }
+        }
+        &__description{
+            color: $GRAY-COLOR;
+            font-size: 20px;
+            text-align: center;
+            width: 90%;
+            @media only screen and (max-width: $TABLETS) {
+                width: 100%;
+            }
+        }
+    }
+}
