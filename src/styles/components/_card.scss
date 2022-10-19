@@ -7,6 +7,7 @@
     flex-direction: column;
     padding: 20px;
     border-radius: $BORDER-RADIUS;
+    cursor: pointer;
     @include box-shadow;
     @media only screen and (max-width: $TABLETS) {
         width: 30%;

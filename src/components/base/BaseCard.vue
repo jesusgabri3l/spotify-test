@@ -4,19 +4,19 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
-  id?: string;
+  linkRoute?: string;
 }
 withDefaults(defineProps<Props>(), {
-  title: 'Title',
-  id: '0',
-  description: 'Description',
+  title: 'Title default',
+  description: 'Description default',
   image: defaultImage,
+  linkRoute: '',
 });
 </script>
 <template>
-  <article class="card">
-    <img :src="image" alt="profile" class="card__image" />
-    <h3 class="card__title mt-4">{{ title }}</h3>
-    <p class="card__description">{{ description }}</p>
-  </article>
+  <router-link class="card" :to="linkRoute" data-testid="card-test">
+    <img :src="image" alt="profile" class="card__image" data-testid="card-image-test" />
+    <h3 class="card__title mt-4" data-testid="card-title-test">{{ title }}</h3>
+    <p class="card__description" data-testid="card-description-test">{{ description }}</p>
+  </router-link>
 </template>

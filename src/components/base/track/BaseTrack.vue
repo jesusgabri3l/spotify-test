@@ -21,10 +21,10 @@ defineProps<Props>();
       </div>
     </div>
     <div class="track__extra-info">
-      <p class="track__extra-info__text">{{ track?.album?.name }}</p>
+      <p class="track__extra-info__text text-center">{{ track?.album?.name }}</p>
     </div>
     <div class="track__extra-info">
-      <p class="track__extra-info__text">
+      <p class="track__extra-info__text text-right">
         {{ millisToMinutesAndSeconds(track.duration_ms as number) }}
       </p>
     </div>

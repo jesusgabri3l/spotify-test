@@ -2,6 +2,10 @@ $BLUE-GRADIENT : rgba(58, 121, 194, 0.7);
 $RED-GRADIENT: rgba(138, 31, 31, 0.7);
 $GREEN-GRADIENT: rgba(36, 86, 19, 0.7);
 
+@mixin gradientByColor($color) {
+  background: linear-gradient(180deg, $color 10.42%, $BACKGROUND-COLOR 100%);
+}
+
 .header{
     height: 50vh;
     width: 100%;
@@ -9,14 +13,14 @@ $GREEN-GRADIENT: rgba(36, 86, 19, 0.7);
     display: flex;
     align-items: center;
     color : $WHITE-COLOR;
-    &.blue{
-        background: linear-gradient(180deg, $BLUE-GRADIENT 10.42%, $BACKGROUND-COLOR 100%);
+    &--blue{
+      @include gradientByColor($BLUE-GRADIENT)
     }
-    &.red{
-        background: linear-gradient(180deg, $RED-GRADIENT 10.42%, $BACKGROUND-COLOR 100%);
+    &--red{
+      @include gradientByColor($RED-GRADIENT)
     }
-    &.green{
-      background: linear-gradient(180deg, $GREEN-GRADIENT 10.42%, $BACKGROUND-COLOR 100%);
+    &--green{
+      @include gradientByColor($GREEN-GRADIENT)
   }
     @media only screen and (max-width: $TABLETS) {
       padding-top: 60px;

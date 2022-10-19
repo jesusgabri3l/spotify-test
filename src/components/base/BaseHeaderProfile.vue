@@ -13,8 +13,8 @@ withDefaults(defineProps<Props>(), {
 });
 </script>
 <template>
-  <header :class="`header ${color}`">
-    <img :src="image" class="header__image" />
+  <header :class="`header header--${color}`" data-testid="headerProfile-test">
+    <img :src="image" class="header__image" data-testid="headerProfile-image-test" />
     <div class="lg:ml-12">
       <p class="header__type mb-2">PROFILE</p>
       <h1
@@ -24,6 +24,7 @@ withDefaults(defineProps<Props>(), {
             ? 'text-lg md:text-4xl'
             : 'text-4xl md:text-5xl lg:text-8xl'
         }`"
+        data-testid="headerProfile-name-test"
       >
         {{ name }}
       </h1>

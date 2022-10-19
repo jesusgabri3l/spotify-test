@@ -12,14 +12,14 @@ onMounted(async () => {
   const router = useRouter();
   const code = route.query.code as string;
   const authStore = useAuthStore();
-
+  // It tries to get the token with the code callback redirection
   try {
     const { data: tokenResponse } = await SpotifyAuthApi.getAccessTokenByCode(code);
     const { access_token, refresh_token } = tokenResponse;
     authStore.setAuthInfo({ access_token, refresh_token });
-    router.push('/home');
+    router.push({ name: 'Home' });
   } catch (e) {
-    router.push('/login');
+    router.push({ name: 'Login' });
   }
 });
 </script>

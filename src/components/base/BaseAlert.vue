@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  type?: string;
+  type?: 'error' | 'info';
   title?: string;
   description?: string;
   icon?: string;
@@ -14,11 +14,13 @@ withDefaults(defineProps<Props>(), {
 });
 </script>
 <template>
-  <div class="alert" :class="`alert--${type}`">
-    <i :class="`fa fa-${icon}`" />
+  <div class="alert" role="alert" :class="`alert--${type}`">
+    <i :class="`fa fa-${icon}`" data-testid="alert-icon-test" />
     <div>
-      <p class="alert__title">{{ title }}</p>
-      <p class="alert__description">{{ description }}</p>
+      <p class="alert__title" data-testid="alert-title-test">{{ title }}</p>
+      <p class="alert__description" data-testid="alert-description-test">
+        {{ description }}
+      </p>
     </div>
   </div>
 </template>

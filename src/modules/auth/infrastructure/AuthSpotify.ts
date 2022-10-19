@@ -49,6 +49,7 @@ export default {
       headers: getHeaders(),
     });
   },
+  // To refresh the token, this triggers when a call to the SpotifyAPI fails with 403
   refreshToken(): Promise<AxiosResponse> {
     const authStore = useAuthStore();
     const body: { refresh_token: string; grant_type: string } = {

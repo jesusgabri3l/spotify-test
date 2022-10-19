@@ -36,6 +36,7 @@ const { loading, userTops } = useFetchUserTops();
             :title="artist.name"
             description="Artist"
             :image="artist.images[0].url"
+            :link-route="`/artist/${artist.id}`"
           />
         </BaseSectionFlex>
         <!-- TOP tracks this month-->
