@@ -18,6 +18,10 @@ export const useAuthStore = defineStore('auth', () => {
     localStorage.setItem('auth_spotify', JSON.stringify(authPayload));
     authInfo.value = authPayload;
   };
+  const logout = (): void => {
+    localStorage.removeItem('auth_spotify');
+    authInfo.value = { access_token: '', refresh_token: '' };
+  };
 
-  return { setAuthInfo, getAccessToken, authInfo, getRefreshToken };
+  return { setAuthInfo, getAccessToken, authInfo, getRefreshToken, logout };
 });

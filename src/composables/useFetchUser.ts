@@ -11,6 +11,10 @@ export const useFetchUser = () => {
   const loading = ref(true);
 
   const getUserInformation = async () => {
+    // In case the token expired and there is no more refresh token, but is already a user in the userStore(a loggin proccess successfully before), just refresh the page
+    if (userStore.getUser.id && !authStore.getAccessToken && !authStore.getRefreshToken)
+      window.location.reload();
+
     if (!userStore.getUser.id && authStore.getAccessToken) {
       try {
         const { data: userResponse } = await SpotifyApi.getCurrentUserInfo();

@@ -8,12 +8,13 @@
         padding-top: $NAVBAR-HEIGHT;
     }
 }
-.content-wrapper{
+.page-content{
     padding: 30px 60px 60px;
+    @media only screen and (max-width: $S-TABLETS) {
+        padding: 0px 30px 30px; 
+    }
 }
 .flex-center{
     @include flex-center;
 }
-.bg-element{
-    background-color: $ELEMENT-COLOR;
-}
+

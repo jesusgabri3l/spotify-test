@@ -7,5 +7,5 @@ withDefaults(defineProps<Props>(), {
 });
 </script>
 <template>
-  <h2 class="text-white font-bold text-3xl">{{ title }}</h2>
+  <h2 class="text-white font-bold text-xl lg:text-3xl">{{ title }}</h2>
 </template>

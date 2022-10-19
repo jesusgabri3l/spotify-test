@@ -1,0 +1,75 @@
+.track{
+    display: flex;
+    padding: 10px 25px;
+    border-radius: $BORDER-RADIUS;
+    justify-content:space-between;
+    align-items:center;
+    &:hover{
+        background-color: $HOVER-ELEMENT-COLOR;
+    }
+    @media only screen and (max-width: $M-PHONE) {
+        padding: 10px 5px;
+    }
+    &__basics{
+        display: flex;
+        align-items: center;
+        width: 50%;
+        &__number{
+            color: $GRAY-COLOR;
+            margin-right: 20px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        &__image{
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+            @media only screen and (max-width: $M-PHONE) {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        &__name{
+            &__track{
+                color: $WHITE-COLOR;
+                font-size: 16px;
+                width: 100%;
+                @include text-ellipsis;
+                @media only screen and (max-width: $S-TABLETS) {
+                    width: 60%;
+                    font-size: 14px;
+                }
+                @media only screen and (max-width: $S-PHONE) {
+                    width: 120px;
+                }
+            }
+            &__artist{
+                color: $GRAY-COLOR;
+                width: 200px;
+                font-size: 14px;
+                @include text-ellipsis;
+                @media only screen and (max-width: $S-TABLETS) {
+                    font-size: 12px;
+                    width: 150px;
+                }
+                @media only screen and (max-width: $S-PHONE) {
+                    width: 120px;
+                }
+            }
+        }
+    }
+
+    &__extra-info{
+        width: 25%;
+        @media only screen and (max-width: $S-TABLETS) {
+            display: none;
+        }
+        &__text{
+            color: $GRAY-COLOR;
+            font-size: 16px;
+            text-align: center;
+            width: 100%;
+            @include text-ellipsis;
+        }
+    }
+}

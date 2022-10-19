@@ -1,11 +1,20 @@
 <script lang="ts" setup>
-const color = 'blue';
-const name = 'jesusgabri3l';
-const img = 'https://i.scdn.co/image/ab6775700000ee859b559feaf5676fa84e5823a0';
+import defaultImage from '@/assets/default.png';
+
+interface Props {
+  color?: 'blue' | 'red' | 'green';
+  name?: string;
+  image?: string;
+}
+withDefaults(defineProps<Props>(), {
+  color: 'blue',
+  name: 'Default profile name',
+  image: defaultImage,
+});
 </script>
 <template>
   <header :class="`header ${color}`">
-    <img :src="img" class="header__image" />
+    <img :src="image" class="header__image" />
     <div class="lg:ml-12">
       <p class="header__type mb-2">PROFILE</p>
       <h1
@@ -13,7 +22,7 @@ const img = 'https://i.scdn.co/image/ab6775700000ee859b559feaf5676fa84e5823a0';
         :class="`${
           name && name.length > 25
             ? 'text-lg md:text-4xl'
-            : 'text-4xl md:text-5xl lg:text-7xl'
+            : 'text-4xl md:text-5xl lg:text-8xl'
         }`"
       >
         {{ name }}

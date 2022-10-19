@@ -1,18 +1,18 @@
+<script setup lang="ts">
+import { useUserStore } from '@/store/user/useUserStore';
+
+import BaseNavbarLinkItem from './BaseNavbarLinkItem.vue';
+import TheNavbarProfile from './TheNavbarProfile.vue';
+
+const userStore = useUserStore();
+</script>
 <template>
-  <nav class="navbar">
+  <nav v-if="userStore.getUser.id" class="navbar">
     <ul class="navbar__list">
-      <li class="navbar__list__item">
-        <router-link to="/home" class="navbar__list__item__link" active-class="active">
-          Home
-        </router-link>
-      </li>
-      <li class="navbar__list__item">
-        <router-link to="/search" class="navbar__list__item__link">Search</router-link>
-      </li>
-      <li class="navbar__list__item">
-        <router-link to="/music" class="navbar__list__item__link">My music</router-link>
-      </li>
+      <BaseNavbarLinkItem link-text="Home" link-route="/home" icon="house-user" />
+      <BaseNavbarLinkItem link-text="Search" link-route="/search" icon="search" />
+      <BaseNavbarLinkItem link-text="My music" link-route="/my-music" icon="music" />
     </ul>
-    <div class="navbar__profile"></div>
+    <TheNavbarProfile />
   </nav>
 </template>

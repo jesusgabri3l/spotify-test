@@ -8,8 +8,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 60px;
+    padding: 0 40px;
     @include box-shadow;
+    @media only screen and (max-width: $TABLETS) {
+        padding: 0 30px;
+    }
+    @media only screen and (max-width: $M-PHONE) {
+        padding: 0 20px;
+    }
     &__list{
         width: 70%;
         height: 100%;
@@ -19,22 +25,90 @@
             height: 100%;
             display: flex;
             &__link{
-                color: $WHITE-COLOR;
+                color: $GRAY-COLOR;
                 font-weight: 500;
-                font-size: 16px;
+                font-size: 14px;
                 letter-spacing:  2px;
-                text-transform: uppercase;
                 height: 100%;
                 @include flex-center;
-                padding: 0 40px;
+                padding: 0 20px;
                 border-radius: $BORDER-RADIUS;
+                @media only screen and (max-width: $TABLETS) {
+                    padding: 0 10px;
+                }
+                &__text{
+                    @media only screen and (max-width: $TABLETS) {
+                        display: none;
+                    }
+                }
+                &__icon{
+                    margin-right: 5px;
+                    @media only screen and (max-width: $TABLETS) {
+                        margin-right: 0;
+                    }
+                }
                 &.active{
+                    color: $WHITE-COLOR;
                     background-color: $PRIMARY-COLOR;
+                    font-weight: 700;
+                    @media only screen and (max-width: $TABLETS) {
+                        background-color: transparent;
+                        color: $PRIMARY-COLOR;
+                    }
+                }
+                &:hover{
+                    color: $WHITE-COLOR;
                 }
             }
         }
     }
     &__profile{
-        width: 30%;
+        width: 280px;
+        @include flex-center;
+        background-color: $ELEMENT-COLOR;
+        padding: 4px 6px;
+        border-radius: $BORDER-RADIUS;
+        @include box-shadow;
+        @media only screen and (max-width: $TABLETS) {
+            width: 100px;
+        }
+        &__image {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            @media only screen and (max-width: $TABLETS) {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+        }
+        &__name{
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: $WHITE-COLOR;
+            margin: 0 15px;
+            @media only screen and (max-width: $TABLETS) {
+                display: none;
+            }
+
+        }
+        &__logout{
+            padding: 0 15px;
+            border-left: 1px solid $GRAY-COLOR;
+            color: $GRAY-COLOR;
+            font-size: 12px;
+            &__text{
+                @media only screen and (max-width: $TABLETS) {
+                    display: none;
+                }
+            }
+            &__icon{
+                margin-right: 5px;
+                @media only screen and (max-width: $TABLETS) {
+                    margin-right: 0;
+                }
+            }
+        }
     }
 }
