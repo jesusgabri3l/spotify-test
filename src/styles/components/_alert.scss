@@ -1,0 +1,27 @@
+$ALERT-ERROR-COLOR: #c0392b;
+.alert{
+    padding: 15px;
+    border-radius: $BORDER-RADIUS;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    &--error{
+        background-color: $ALERT-ERROR-COLOR;
+        color: $WHITE-COLOR;
+    }
+    &--info{
+        background-color: $ELEMENT-COLOR;
+        color: $WHITE-COLOR;
+    }
+    i{
+       font-size: 20px; 
+    }
+    &__title{
+        font-weight: 700;
+        font-size: 18px;
+    }
+    &__description{
+        font-weight: 500;
+    }
+}

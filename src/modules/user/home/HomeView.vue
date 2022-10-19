@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
+import ErrorBoundary from 'vue-error-boundary';
 
 import BaseCard from '@/components/base/BaseCard.vue';
 import BaseHeaderProfile from '@/components/base/BaseHeaderProfile.vue';

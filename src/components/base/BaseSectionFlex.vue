@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BaseAlert from './BaseAlert.vue';
 import BaseTitleSection from './BaseTitleSection.vue';
 interface Props {
   title?: string;
@@ -28,7 +29,14 @@ withDefaults(defineProps<Props>(), {
       </router-link>
     </div>
     <div :class="`flex mt-10 justify-center ${column ? 'flex-col' : 'flex-wrap gap-6'}`">
-      <slot class="mt-8"> Looks like there is not information here yet! </slot>
+      <slot class="mt-8">
+        <BaseAlert
+          title="No information yet"
+          description="Looks like there is no information here yet"
+          type="info"
+          icon="info"
+        />
+      </slot>
     </div>
   </div>
 </template>

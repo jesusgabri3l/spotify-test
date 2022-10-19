@@ -32,8 +32,8 @@ SpotifyApi.interceptors.response.use(
   async (error) => {
     const authStore = useAuthStore();
     if (
-      error.response.data.error.status === 401 &&
-      error.response.data.error.message === 'The access token expired'
+      error.response.data?.error?.status === 401 &&
+      error.response.data?.error?.message === 'The access token expired'
     ) {
       if (!authStore.authInfo.refresh_token) {
         authStore.setAuthInfo({ access_token: '', refresh_token: '' });

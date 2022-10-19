@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { onErrorCaptured } from 'vue';
+
 import BaseLoader from '@/components/base/BaseLoader.vue';
 import TheLayout from '@/components/layout/TheLayout.vue';
 import { useFetchUser } from '@/composables/useFetchUser';
