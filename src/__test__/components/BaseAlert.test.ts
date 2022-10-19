@@ -33,7 +33,7 @@ describe('Testing Base Alert component', () => {
     const alertContainer = screen.getByRole('alert');
     expect(alertContainer).toBeInTheDocument();
     expect(alertContainer).toHaveClass('alert alert--error');
-    expect(screen.getByTestId('alert-icon-test')).toHaveClass('fa fa-hashtag');
+    expect(screen.getByTestId('alert-icon-test')).toHaveClass('fas fa-hashtag');
     expect(screen.getByTestId('alert-title-test')).toHaveTextContent(
       'Something wrong happened.',
     );
