@@ -15,7 +15,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 <template>
   <div class="alert" role="alert" :class="`alert--${type}`">
-    <i :class="`fa fa-${icon}`" data-testid="alert-icon-test" />
+    <i :class="`fas fa-${icon}`" data-testid="alert-icon-test" />
     <div>
       <p class="alert__title" data-testid="alert-title-test">{{ title }}</p>
       <p class="alert__description" data-testid="alert-description-test">

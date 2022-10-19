@@ -16,7 +16,7 @@ describe('Testing Base Alert component', () => {
     const alertContainer = screen.getByRole('alert');
     expect(alertContainer).toBeInTheDocument();
     expect(alertContainer).toHaveClass('alert alert--info');
-    expect(screen.getByTestId('alert-icon-test')).toHaveClass('fa fa-plus');
+    expect(screen.getByTestId('alert-icon-test')).toHaveClass('fas fa-plus');
     expect(screen.getByTestId('alert-title-test')).toHaveTextContent('Testing title');
     expect(screen.getByTestId('alert-description-test')).toHaveTextContent(
       'Testing description',
